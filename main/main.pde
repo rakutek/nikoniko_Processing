@@ -35,6 +35,7 @@ Twitter twitter;
 
 ArrayList<Tweet> tweets;
 float tx = 1920;
+float y = 500;
 
 void settings() {
   size(1920, 1080, P3D);
@@ -51,46 +52,39 @@ void setup() {
   builder.setOAuthAccessTokenSecret(accessTokenSecret);
   TwitterStreamFactory factory = new TwitterStreamFactory(builder.build());
   TwitterStream stream = factory.getInstance();
-  stream.addListener(new MyStatusListener());
+  stream.addListener(new MyStatusListener()); 
   stream.filter("#TMF3");
-  
+
   server = new SyphonServer(this, "Processing Syphon");
 }
 
 void draw() {
   background(0);
   fill(255);
-  
-  PFont font = createFont("Ms Gothic",80,true);
+  PFont font = createFont("Ms Gothic", 130, true);
   textFont(font);
-  
-  
-  float th = textAscent() + textDescent();
-  float margin = 12;
-  //text("Received " + tweets.size() + " tweets", margin, th);
+
   if (tweets.size() > 0) {
-    Tweet t = tweets.get(tweets.size() - 1); // latest tweet
-    //text("Latest tweet:", margin, th * 2);
-    //image(t.profileImage, margin, th * 3);
-    //float tx = t.profileImage.width + margin * 2;
-    float tw = width - t.profileImage.width - margin * 3;
-    //text(t.name + " @" + t.screenName, tx, th * 3);
-    
+    Tweet t = tweets.get(tweets.size() - 1); 
+
     String tt = t.text;
     tt = tt.replaceAll("#TMF3", "");
-    
-    tx -= 7;
-    
-    text(t.name, tx, th * 3,tw, height - th * 4);
-    text(tt, tx, th * 4, tw, height - th * 4);
-    
-    
+
+    tx -= 7.5;
+
+
+    text(tt, tx, y);
+
+    //text(t.name, tx+35, y-83);  
   }
-  server.sendScreen();  
+  server.sendScreen();
 }
 
 class MyStatusListener extends StatusAdapter {
   public void onStatus(Status s) {
+    delay(5000);
     tweets.add(new Tweet(s));
+    tx = 1920;
+    y = random(70, 950);
   }
 }
