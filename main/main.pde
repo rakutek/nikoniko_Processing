@@ -10,10 +10,10 @@ import twitter4j.management.*;
 import twitter4j.util.*;
 import twitter4j.util.function.*;
 
-String consumerKey = "rlMN2KDTPTiXc5lli8h6U2VAX";
-String consumerSecret = "88ps811rRpqyGqVBvsJVJO1DX27RENR2IYjKmawqUS1LuYOP5M";
-String accessToken = "1150560823946797056-SywPLOGy8LLImy3HJrkyr1tC53ovQv";
-String accessTokenSecret = "iPH6kFmqreMexlIxhVDAxbRfp4iaZG2q2ykuuBBNQWYIB";
+String consumerKey = "";
+String consumerSecret = "";
+String accessToken = "";
+String accessTokenSecret = "";
 
 class Tweet {
   long id;
