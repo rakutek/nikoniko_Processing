@@ -77,7 +77,7 @@ void draw() {
     //text(t.name + " @" + t.screenName, tx, th * 3);
     
     String tt = t.text;
-    tt = tt.replaceAll("#TMF3", "");
+    tt = tt.replaceAll("指定するハッシュタグ", "");
     
     tx -= 7;
     
