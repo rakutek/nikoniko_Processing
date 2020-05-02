@@ -1,5 +1,5 @@
 
-![nikoniko.gif]()
+![nikoniko.gif](./nikoniko.gif)
 
 Twitterで申請したキーを入力してくだい
 
