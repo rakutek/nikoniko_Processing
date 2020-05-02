@@ -67,14 +67,9 @@ void draw() {
   
   float th = textAscent() + textDescent();
   float margin = 12;
-  //text("Received " + tweets.size() + " tweets", margin, th);
   if (tweets.size() > 0) {
     Tweet t = tweets.get(tweets.size() - 1); // latest tweet
-    //text("Latest tweet:", margin, th * 2);
-    //image(t.profileImage, margin, th * 3);
-    //float tx = t.profileImage.width + margin * 2;
     float tw = width - t.profileImage.width - margin * 3;
-    //text(t.name + " @" + t.screenName, tx, th * 3);
     
     String tt = t.text;
     tt = tt.replaceAll("指定するハッシュタグ", "");
