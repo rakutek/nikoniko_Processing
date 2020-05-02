@@ -74,7 +74,12 @@ void draw() {
     String tt = t.text;
     tt = tt.replaceAll("指定するハッシュタグ", "");
     
-    tx -= 7;
+    if (tt.length() > 15) {
+      tx -= tt.length()
+    } else {
+      tx -= 7;
+    }
+    
     
     text(t.name, tx, th * 3,tw, height - th * 4);
     text(tt, tx, th * 4, tw, height - th * 4);
